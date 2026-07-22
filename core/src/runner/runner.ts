@@ -640,10 +640,6 @@ export class Runner {
               return;
             }
 
-            if (!event.partial && !isLiveModelMediaEventWithInlineData(event)) {
-              await this.sessionService.appendEvent({session, event});
-            }
-
             const modifiedEvent = await this.pluginManager.runOnEventCallback({
               invocationContext,
               event,
@@ -652,7 +648,13 @@ export class Runner {
               return;
             }
 
-            yield modifiedEvent ?? event;
+            const eventToProcess = modifiedEvent ?? event;
+
+            if (!eventToProcess.partial && !isLiveModelMediaEventWithInlineData(eventToProcess)) {
+              await this.sessionService.appendEvent({session, event: eventToProcess});
+            }
+
+            yield eventToProcess;
           }
 
           // Step 3: after-run plugin hook for cleanup/metrics.

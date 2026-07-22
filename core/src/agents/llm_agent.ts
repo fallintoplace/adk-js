@@ -939,6 +939,8 @@ export class LlmAgent extends BaseAgent {
         throw err;
       }
 
+      attempt = 1;
+
       // Skip history replay when resuming -- server already has the state.
       if (
         llmRequest.contents.length > 0 &&
@@ -1165,6 +1167,14 @@ export class LlmAgent extends BaseAgent {
         // porting that semantics is out of scope here.
         if (event.content && getFunctionResponses(event).length > 0) {
           await connection.sendContent(event.content);
+        }
+
+        const taskCompleted = getFunctionResponses(event).some(
+          (r) => r.name === 'task_completed',
+        );
+        if (taskCompleted) {
+          await sleep(TRANSFER_AGENT_DELAY_MS);
+          return;
         }
 
         // Handle agent transfer triggered by a transfer_to_agent function
