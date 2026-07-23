@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.4.1](https://github.com/google/adk-js/compare/adk-v1.4.0...adk-v1.4.1) (2026-07-23)
+
+
+### Features
+
+* Implement Anchored Iterative Summarization in adk-js context compactors ([#470](https://github.com/google/adk-js/issues/470)) ([85d0321](https://github.com/google/adk-js/commit/85d03217663214ec89da5ddbe71c433fcee29ac4))
+* Port LoopAgent live streaming support (runLiveImpl) to TypeScript ([#504](https://github.com/google/adk-js/issues/504)) ([312b463](https://github.com/google/adk-js/commit/312b463e7861b6a353c4ad6822239e67db123334))
+* scope global instructions using GlobalInstructionPlugin (parity with adk-python b/425992518) ([#507](https://github.com/google/adk-js/issues/507)) ([c9089be](https://github.com/google/adk-js/commit/c9089be394e0419112653d439841f299b7a265b4))
+* Upgrade branch string matching to Trie search structure in content_processor_utils.ts ([#509](https://github.com/google/adk-js/issues/509)) ([c10ccd6](https://github.com/google/adk-js/commit/c10ccd61e67f5eb55941eace7b3a6b902dd65059))
+
+
+### Bug Fixes
+
+* Artifact Saving Message Part Replacement & LLM Exposure (TODO b/425992518) ([#515](https://github.com/google/adk-js/issues/515)) ([24bb8e9](https://github.com/google/adk-js/commit/24bb8e92858a9e23d419948bca465fa24fc3328c))
+
 ## [1.4.0](https://github.com/google/adk-js/compare/adk-v1.3.0...adk-v1.4.0) (2026-07-20)
 
 
